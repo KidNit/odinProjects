@@ -27,7 +27,15 @@ function getComputerChoice(max){
     return Math.floor(Math.random() * max);
 }
 let debugging =getComputerChoice(3);
+    if(getComputerChoice=0){
+        getComputerChoice = rock;
+    }else if(getComputerChoice=1){
+        getComputerChoice = paper;
+    }else if(getComputerChoice=2){
+        getComputerChoice = scissors;
+    }
 console.log(debugging);
+
 function getHumanChoice(){
     let Choice = prompt("Please enter your choice: ").toLowerCase();
     if (Choice !== rock && Choice !== paper && Choice !== scissors){
@@ -38,14 +46,8 @@ getHumanChoice();
 
 
 function gameLogic(humanScore, computerScore){
-    if(getComputerChoice=0){
-        getComputerChoice = rock;
-    }else if(getComputerChoice=1){
-        getComputerChoice = paper;
-    }else if(getComputerChoice=2){
-        getComputerChoice = scissors;
-    }
-    if(humanScore=computerScore){
+
+    if(humanScore==computerScore){
         prompt("This Is A Draw");
     }else if(humanScore == rock && computerScore==scissors || humanScore==scissors && computerScore==paper ){
         console.log("playerScore++ ");
@@ -56,9 +58,13 @@ function gameLogic(humanScore, computerScore){
     }
 }
 gameLogic(getComputerChoice, getHumanChoice);
-
-function scoreline(){
-    gameLogic()
-    while()
-};
+// I dont know the f Im doing either I will have to change the human choices into integer values
+//  that I can select and 
+// comparewith the computer numbers 
+// however I need to make a tracking feature for the game counting how many rounds have been played as well as 
+// score tracking the scores to the game
+// function scoreline(){
+//     gameLogic()
+//     while()
+// };
 
