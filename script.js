@@ -1,4 +1,5 @@
-    // if(getComputerChoice=0){
+// This Is The GRAVEYARD OF Code
+// if(getComputerChoice=0){
     //     console.log("Rock");
     // }else if(getComputerChoice=1){
     //     console.log("Paper");
@@ -19,45 +20,52 @@
 // const computerSelection = getComputerChoice();
 // // playRound(humanSelection, computerSelection);
 
-let rock="rock";
-let paper="paper";
-let scissors="scissors";
-function getComputerChoice(max){
+// function getComputerChoice(max){
 
-    return Math.floor(Math.random() * max);
-}
-let debugging =getComputerChoice(3);
-    if(getComputerChoice=0){
-        getComputerChoice = rock;
-    }else if(getComputerChoice=1){
-        getComputerChoice = paper;
-    }else if(getComputerChoice=2){
-        getComputerChoice = scissors;
-    }
-console.log(debugging);
+//     return Math.floor(Math.random() * max);
+// }
+// let debugging =getComputerChoice(3);
+//     if(getComputerChoice=0){
+//         getComputerChoice = rock;
+//     }else if(getComputerChoice=1){
+//         getComputerChoice = paper;
+//     }else if(getComputerChoice=2){
+//         getComputerChoice = scissors;
+//     }
+// console.log(debugging);
+
+function getComputerChoice() {
+    const choices = ["rock", "paper", "scissors"];
+    return choices[Math.floor(Math.random() * choices.length)];
+  };
+
+  let debug= console.log(getComputerChoice());
+
 
 function getHumanChoice(){
     let Choice = prompt("Please enter your choice: ").toLowerCase();
-    if (Choice !== rock && Choice !== paper && Choice !== scissors){
+    if (Choice !== "rock" && Choice !== "paper" && Choice !== "scissors"){
         prompt("Enter Valid choice");
-    }
-}
-getHumanChoice();
+    };
+    return Choice;
+};
 
+
+getHumanChoice();
 
 function gameLogic(humanScore, computerScore){
 
-    if(humanScore==computerScore){
+    if(humanScore === computerScore){
         prompt("This Is A Draw");
-    }else if(humanScore == rock && computerScore==scissors || humanScore==scissors && computerScore==paper ){
+    }else if((humanScore === "rock") && (computerScore === "scissors") || (humanScore === "scissors") && (computerScore === "paper") ){
         console.log("playerScore++ ");
-        let p = 1;
-    }else if(computerScore == rock && humanScore==scissors || computerScore==scissors && humanScore==paper){
+        return `You win! ${humanScore} beats ${computerScore}.`;
+    }else if((computerScore === "rock") && (humanScore === "scissors") || (computerScore === "scissors") && (humanScore === "paper")){
         console.log("computerScore++ ");
-        let c =1;
-    }
+    }else {
+         return `You lose! ${computerScore} beats ${humanScore}.`;
 }
-gameLogic(getComputerChoice, getHumanChoice);
+
 // I dont know the f Im doing either I will have to change the human choices into integer values
 //  that I can select and 
 // comparewith the computer numbers 
@@ -67,4 +75,3 @@ gameLogic(getComputerChoice, getHumanChoice);
 //     gameLogic()
 //     while()
 // };
-
