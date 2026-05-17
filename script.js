@@ -51,19 +51,25 @@ function getHumanChoice(){
 };
 
 
-getHumanChoice();
+// getHumanChoice();
 
 function gameLogic(humanScore, computerScore){
 
-    if(humanScore === computerScore){
-        prompt("This Is A Draw");
-    }else if((humanScore === "rock") && (computerScore === "scissors") || (humanScore === "scissors") && (computerScore === "paper") ){
+    if(humanScore == computerScore){
+
+        alert("This Is A Draw");
+
+    }else if((humanScore == "rock") && (computerScore == "scissors") || (humanScore == "scissors") && (computerScore == "paper") ||(humanScore == "paper") && (computerScore == "rock")){
+
         console.log("playerScore++ ");
-        return `You win! ${humanScore} beats ${computerScore}.`;
-    }else if((computerScore === "rock") && (humanScore === "scissors") || (computerScore === "scissors") && (humanScore === "paper")){
+
+        // return `You win! ${humanScore} beats ${computerScore}.`;
+
+    }else if((computerScore == "rock") && (humanScore == "scissors") || (computerScore == "scissors") && (humanScore == "paper") ||(humanScore == "rock") && (computerScore == "paper")){
+
         console.log("computerScore++ ");
-    }else {
-         return `You lose! ${computerScore} beats ${humanScore}.`;
+
+//     }
 }
 
 // I dont know the f Im doing either I will have to change the human choices into integer values
@@ -74,4 +80,5 @@ function gameLogic(humanScore, computerScore){
 // function scoreline(){
 //     gameLogic()
 //     while()
-// };
+ };
+ gameLogic(getHumanChoice(), getComputerChoice());
