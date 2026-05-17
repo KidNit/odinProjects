@@ -39,13 +39,14 @@ function getComputerChoice() {
     return choices[Math.floor(Math.random() * choices.length)];
   };
 
-  let debug= console.log(getComputerChoice());
+  const computerScore = getComputerChoice().trim();
+  let debug= console.log(computerScore);
 
 
 function getHumanChoice(){
     let Choice = prompt("Please enter your choice: ").toLowerCase();
-    if (Choice !== "rock" && Choice !== "paper" && Choice !== "scissors"){
-        prompt("Enter Valid choice");
+    while (Choice !== "rock" && Choice !== "paper" && Choice !== "scissors"){
+        Choice = prompt("Enter Valid choice");
     };
     return Choice;
 };
@@ -55,22 +56,25 @@ function getHumanChoice(){
 
 function gameLogic(humanScore, computerScore){
 
-    if(humanScore == computerScore){
+    if(humanScore === computerScore){
 
         alert("This Is A Draw");
 
-    }else if((humanScore == "rock") && (computerScore == "scissors") || (humanScore == "scissors") && (computerScore == "paper") ||(humanScore == "paper") && (computerScore == "rock")){
+    }else if(
+        (humanScore == "rock") && (computerScore == "scissors") || 
+        (humanScore == "paper") && (computerScore == "rock") ||
+        (humanScore == "scissors") && (computerScore == "paper")){
 
         console.log("playerScore++ ");
 
         // return `You win! ${humanScore} beats ${computerScore}.`;
 
-    }else if((computerScore == "rock") && (humanScore == "scissors") || (computerScore == "scissors") && (humanScore == "paper") ||(humanScore == "rock") && (computerScore == "paper")){
+    }else {
 
         console.log("computerScore++ ");
 
-//     }
-}
+   }
+// }
 
 // I dont know the f Im doing either I will have to change the human choices into integer values
 //  that I can select and 
@@ -81,4 +85,5 @@ function gameLogic(humanScore, computerScore){
 //     gameLogic()
 //     while()
  };
- gameLogic(getHumanChoice(), getComputerChoice());
+ const humanScore = getHumanChoice();
+ gameLogic(humanScore, computerScore);
