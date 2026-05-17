@@ -15,7 +15,16 @@
 //     humanChoice(getHumanChoice);
 //     computerChoice(getComputerChoice);
 // }
+// }
 
+// I dont know the f Im doing either I will have to change the human choices into integer values
+//  that I can select and 
+// comparewith the computer numbers 
+// however I need to make a tracking feature for the game counting how many rounds have been played as well as 
+// score tracking the scores to the game
+// function scoreline(){
+//     gameLogic()
+//     while()
 // const humanSelection = getHumanChoice();
 // const computerSelection = getComputerChoice();
 // // playRound(humanSelection, computerSelection);
@@ -34,13 +43,14 @@
 //     }
 // console.log(debugging);
 
+let playerScore = 0;
+let computersScore = 0;
+let Draws = 0;
 function getComputerChoice() {
     const choices = ["rock", "paper", "scissors"];
     return choices[Math.floor(Math.random() * choices.length)];
   };
 
-  const computerScore = getComputerChoice().trim();
-  let debug= console.log(computerScore);
 
 
 function getHumanChoice(){
@@ -51,39 +61,39 @@ function getHumanChoice(){
     return Choice;
 };
 
-
-// getHumanChoice();
-
 function gameLogic(humanScore, computerScore){
 
     if(humanScore === computerScore){
-
+        Draws++;
         alert("This Is A Draw");
 
     }else if(
         (humanScore == "rock") && (computerScore == "scissors") || 
         (humanScore == "paper") && (computerScore == "rock") ||
         (humanScore == "scissors") && (computerScore == "paper")){
+            playerScore ++;
+        console.log("playerScore++ ",playerScore);
 
-        console.log("playerScore++ ");
-
-        // return `You win! ${humanScore} beats ${computerScore}.`;
+         alert( "You win! " +humanScore+ " beats " +computerScore+".");
 
     }else {
-
-        console.log("computerScore++ ");
+        computersScore ++;
+        console.log("computerScore++ ", computersScore);
+        alert( "Computer wins! " +computerScore+ " beats " +humanScore+".");
 
    }
-// }
-
-// I dont know the f Im doing either I will have to change the human choices into integer values
-//  that I can select and 
-// comparewith the computer numbers 
-// however I need to make a tracking feature for the game counting how many rounds have been played as well as 
-// score tracking the scores to the game
-// function scoreline(){
-//     gameLogic()
-//     while()
  };
- const humanScore = getHumanChoice();
- gameLogic(humanScore, computerScore);
+
+
+
+ function gameRound(times){
+    for(let i = 1; i <= times; i++){
+        
+        const computerScore = getComputerChoice().trim();
+        let debug= console.log(computerScore);
+        const humanScore = getHumanChoice();
+        gameLogic(humanScore, computerScore);
+    }
+    alert("ScoreLine==>     PLAYER:  "+playerScore+  "    COMPUTER:  " + computersScore+ "    DRAW:    " +Draws);
+ };
+ gameRound(5);
